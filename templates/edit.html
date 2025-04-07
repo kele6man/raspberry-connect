@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Редакция на {{ device_id }}</title>
+</head>
+<body>
+    <h1>Редактиране на {{ device_id }}</h1>
+    <form method="POST">
+        <label>Тип съдържание:</label>
+        <select name="type">
+            <option value="image" {% if data.type == 'image' %}selected{% endif %}>Изображение</option>
+            <option value="video" {% if data.type == 'video' %}selected{% endif %}>Видео</option>
+        </select><br><br>
+        <label>URL:</label>
+        <input type="text" name="url" value="{{ data.url }}"><br><br>
+        <button type="submit">Запази</button>
+    </form>
+    <a href="{{ url_for('index') }}">← Назад</a>
+</body>
+</html>

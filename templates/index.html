@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Устройства</title>
+</head>
+<body>
+    <h1>Списък с устройства</h1>
+    <form action="/add" method="POST">
+        <input type="text" name="device_id" placeholder="Нов ID на устройство" required>
+        <button type="submit">Добави</button>
+    </form>
+    <ul>
+        {% for device, data in devices.items() %}
+        <li>
+            <strong>{{ device }}</strong> – {{ data.type }} – 
+            <a href="{{ url_for('edit', device_id=device) }}">Редактирай</a>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
